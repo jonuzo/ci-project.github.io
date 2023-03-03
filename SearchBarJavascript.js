@@ -1,33 +1,34 @@
-function fetch_data(p){
-	API_KEY = '6aa86f5797de13c2b8d8eb2581248f51'
-	user_query = 'Thor'
-	const list = []
-	fetch('https://api.themoviedb.org/3/search/movie?api_key='+API_KEY+'&language=en-US&query='+user_query+'&page=1&include_adult=false')
+async function movie_title(p){
+API_KEY = '6aa86f5797de13c2b8d8eb2581248f51'
+user_query = 'Thor'
+const list = []
+const result = await fetch('https://api.themoviedb.org/3/search/movie?api_key='+API_KEY+'&language=en-US&query='+user_query+'&page=1&include_adult=false')
 		.then(res => res.json())
-    		.then(data => {
-    			results = data.results;
-      			for (let movie of results) {		
-			    	list.push(movie.original_title)
-  				return(list[p])
+    .then(data => {
+    	results = data.results;
+      for (let movie of results) {
+      	  list.push(movie.original_title)
+		  }
+      return((list[p]))
 					
-      }
     })
-}
+    return result;
+    }
+
+
 
 
 
 function loadSearchData(){
-    movie_title1 = fetch_data(0)
-	movie_title2 = fetch_data(1)
     var searchresults = [
         {
             id: 1,
-            title: movie_title1,
+            title: movie_title(0).then(data => console.log(data)),
             link: "/one.html",
         },  
         {
             id: 2,
-            title: movie_title2,
+            title: movie_title(1).then(data => console.log(data)),
             link: "/two.html",
         },
         
