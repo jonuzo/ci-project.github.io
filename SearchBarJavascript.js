@@ -1,66 +1,40 @@
-
-API_KEY = '6aa86f5797de13c2b8d8eb2581248f51'
-user_query = 'Thor'
-fetch('https://api.themoviedb.org/3/search/movie?api_key='+API_KEY+'&language=en-US&query='+user_query+'&page=1&include_adult=false')
+function fetch_data(){
+	API_KEY = '6aa86f5797de13c2b8d8eb2581248f51'
+	user_query = 'Thor'
+	const list = []
+	fetch('https://api.themoviedb.org/3/search/movie?api_key='+API_KEY+'&language=en-US&query='+user_query+'&page=1&include_adult=false')
 		.then(res => res.json())
-    .then(data => {
-    	results = data.results;
-      for (let movie of results) {
-      	console.log(movie.original_title);
+    		.then(data => {
+    			results = data.results;
+      			for (let movie of results) {		
+			    	list.push(movie.original_title)
+  				return(list[id])
+					
       }
     })
-
-
+}
 
 
 
 function loadSearchData(){
+    title = fetch_data()
     var searchresults = [
         {
             id: 1,
-            title: "Result 1",
+            title: "title",
             link: "/one.html",
         },
         {
             id: 2,
-            title: "Result 2",
+            title: "title",
             link: "/two.html",
         },
         {
             id: 3,
-            title: "Result 3",
+            title: "title",
             link: "/three.html",
-        },
-        {
-            id: 4,
-            title: "Result 4",
-            link: "/four.html",
-        },
-        {
-            id: 5,
-            title: "Result 5",
-            link: "/five.html",
-        },
-        {
-            id: 6,
-            title: "Result 6",
-            link: "/six.html",
-        },
-        {
-            id: 7,
-            title: "Result 7",
-            link: "/seven.html",
-        },
-        {
-            id: 8,
-            title: "Result 8",
-            link: "/eight.html",
-        },
-        {
-            id: 9,
-            title: "Result 9",
-            link: "/nine.html",
         }
+        
     ];
 
     var searchbar = document.getElementById("list");
