@@ -1,4 +1,4 @@
-function fetch_data(){
+function fetch_data(p){
 	API_KEY = '6aa86f5797de13c2b8d8eb2581248f51'
 	user_query = 'Thor'
 	const list = []
@@ -8,7 +8,7 @@ function fetch_data(){
     			results = data.results;
       			for (let movie of results) {		
 			    	list.push(movie.original_title)
-  				return(list[id])
+  				return(list[p])
 					
       }
     })
@@ -17,23 +17,19 @@ function fetch_data(){
 
 
 function loadSearchData(){
-    title = fetch_data()
+    movie_title1 = fetch_data(0)
+	movie_title2 = fetch_data(1)
     var searchresults = [
         {
             id: 1,
-            title: "title",
+            title: movie_title1,
             link: "/one.html",
-        },
+        },  
         {
             id: 2,
-            title: "title",
+            title: movie_title2,
             link: "/two.html",
         },
-        {
-            id: 3,
-            title: "title",
-            link: "/three.html",
-        }
         
     ];
 
