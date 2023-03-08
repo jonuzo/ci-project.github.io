@@ -1,3 +1,15 @@
+body {
+  background-color: white;
+}
+h1 {
+  color: black;
+}
+h2 {
+  color: black;
+}
+h3 {
+  color: black;
+}
 p {
-  color: purple;
+  color: black;
 }
