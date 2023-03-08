@@ -1,0 +1,86 @@
+<!doctype html>
+<html>
+
+ <nav>     
+   <li><a href="index.html">Home</a></li>
+</nav>
+
+  
+<head>
+<title>Rate a Movie</title>
+
+  <!-- script allowing rating input between 1 & 5 -->
+<script>
+function validateRating() {
+  var rating = document.getElementById("rating").value;
+    if (isNaN(rating) || rating < 1 || rating > 5) {
+        alert("Please enter a number between 1 and 5 for the rating.");
+    return false;
+}
+    return true;
+}
+</script>
+
+  
+<link rel="stylesheet" href="styles.css">
+</head>
+
+  
+<body>
+  
+<h1>Rate a Movie</h1>
+
+<form action="submit-rating.php" method="post" onsubmit="return validateRating();">
+<p>
+<label for="title">Title:</label>
+<input type="text" id="title" name="title" required>
+</p>
+
+<p>
+<label for="genre">Genre:</label>
+  
+<select id="genre" name="genre">
+<option value="">Select a genre</option>
+<option value="action">Action</option>
+<option value="comedy">Comedy</option>
+<option value="drama">Drama</option>
+<option value="horror">Horror</option>
+<option value="sci-fi">Sci-Fi</option>
+</select>
+</p>
+
+<p>
+<label for="rating">Rating:</label>
+<input type="number" id="rating" name="rating" min="1" max="5" required>
+</p>
+
+<p>
+<label for="review">Review:</label>
+<textarea id="review" name="review" rows="5"></textarea>
+</p>
+
+<p>
+<label for="image">Image:</label>
+<input type="file" id="image" name="image">
+</p>
+
+<p>
+<label for="search">Search:</label>
+<input type="text" id="search" name="search">
+<input type="submit" value="Search">
+</p>
+
+<p>
+<label for="comments">Comments:</label>
+<textarea id="comments" name="comments" rows="5"></textarea>
+</p>
+
+<p>
+<input type="submit" value="Submit">
+</p>
+  
+</form>
+
+  
+</body>
+</html>
