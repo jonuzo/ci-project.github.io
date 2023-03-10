@@ -23,7 +23,12 @@
 
 
 <p>
-<label for="title">Title:</label>
+<label for="reviewer_name">Reviewer Name:</label>
+<input type="text" id="reviewer_name" name="reviewer_name" required>
+</p>
+  
+<p>
+<label for="title">Film Title:</label>
 <input type="text" id="title" name="title" required>
 </p>
 
@@ -45,6 +50,7 @@
 <textarea id="review" name="review" rows="5"></textarea>
 </p>
 
+
 <p>
 <label for="image">Image:</label>
 <input type="file" id="image" name="image">
@@ -53,11 +59,13 @@
 <p>
 <input type="submit" value="Submit">
 </p>
+
+
   
-</form>
-
-
-<!-- star ratings -->
+<p>
+<label for="rate_title">Rate it below:</label>
+</p>
+  
   <div class="rate">
     <input type="radio" id="star5" name="rate" value="5" />
     <label for="star5" title="text">5 stars</label>
@@ -70,6 +78,9 @@
     <input type="radio" id="star1" name="rate" value="1" />
     <label for="star1" title="text">1 star</label>
   </div>
+
+
+</form>
 
   
 </body>
