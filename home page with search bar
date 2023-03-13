@@ -18,7 +18,7 @@
         .then(data => {
           const resultsList = document.getElementById("search-results");
           resultsList.innerHTML = "";
-          data.results.forEach((result, index) => {
+          data.results.slice(0, 5).forEach((result, index) => {
             const listItem = document.createElement("li");
             const link = document.createElement("a");
             link.href = `movie.html?id=${result.id}`;
