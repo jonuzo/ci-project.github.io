@@ -4,8 +4,8 @@
   <title>API Search</title>
 </head>
 <body>
-  <h1>Search API</h1>
-  <input type="text" id="search-input" placeholder="Enter search term">
+  <h1>What movie do want to review?</h1>
+  <input type="text" id="search-input" placeholder="Enter movie title">
   <button onclick="searchAPI()">Search</button>
   <ul id="search-results"></ul>
 
