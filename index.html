@@ -36,7 +36,7 @@
           data.results.slice(0, 5).forEach((result, index) => {
             const listItem = document.createElement("li");
             const link = document.createElement("a");
-            link.href = `movie'+{result}+'.html?id=${result.id}';
+            link.href = `movie'+{index}+'.html?id=${result.id}';
             link.innerText = `${index + 1}. ${result.title}`;
             listItem.appendChild(link);
             resultsList.appendChild(listItem);
