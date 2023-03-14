@@ -34,6 +34,7 @@
           const resultsList = document.getElementById("search-results");
           resultsList.innerHTML = "";
           data.results.slice(0, 5).forEach((result, index) => {
+            localStorage.setItem("A", result);
             const listItem = document.createElement("li");
             const link = document.createElement("a");
             <a href="movie.html"/a>
