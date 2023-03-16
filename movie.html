@@ -24,7 +24,12 @@
       <label for="reviewer_name">Reviewer Name:</label>
       <input type="text" id="reviewer_name" name="reviewer_name" required>
     </p>
-
+    
+    <p>
+    <label for="title">Film Title:</label>
+    <input type="text" id="title" name="title" required>
+    </p>
+    
     <p>
       <label for="title">Film Title:</label>
       <input type="text" id="title" name="title" required>
@@ -59,20 +64,20 @@
 
   <script>
     function loadSearchData() {
-      const searchParams = new URLSearchParams(window.location.search);
-      const movieTitle = searchParams.get("movie_title");
+  const searchParams = new URLSearchParams(window.location.search);
+  const movieTitle = searchParams.get("title"); 
 
-      fetch('https://api.themoviedb.org/3/search/movie?api_key=6aa86f5797de13c2b8d8eb2581248f51&language=en-US&query='+ movieTitle + '&page=1&include_adult=false')
-        .then(response => response.json())
-        .then(data => {
-          const title = data.title;
-          document.getElementById("movie-title").textContent = title;
+  fetch('https://api.themoviedb.org/3/search/movie?api_key=6aa86f5797de13c2b8d8eb2581248f51&language=en-US&query='+ movieTitle + '&page=1&include_adult=false')
+    .then(response => response.json())
+    .then(data => {
+      const title = data.results[0].title; 
+      document.getElementById("movie-title").textContent = title;
 
-          const synopsis = data.overview;
-          document.getElementById("specific-data").textContent = synopsis;
-        })
-        .catch(error => console.log(error));
-    }
+      const synopsis = data.results[0].overview; 
+      document.getElementById("specific-data").textContent = synopsis;
+    })
+    .catch(error => console.log(error));
+}
   </script>
 </body>
 
