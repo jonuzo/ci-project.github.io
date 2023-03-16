@@ -36,8 +36,8 @@
           data.results.slice(0, 5).forEach((result, index) => {
             const listItem = document.createElement("li");
             const link = document.createElement("a");
-            link.href = 'movie.html?title=${result.title}';
-            link.innerText = '${index + 1}. ${result.title}';
+            link.href = `movie.html?title=${result.title}`;
+            link.innerText = `${index + 1}. ${result.title}`;
             const movie-title = result.title;
             localStorage.setItem('movie-title', result.title) 
             listItem.appendChild(link);
