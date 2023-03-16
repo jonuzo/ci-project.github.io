@@ -62,10 +62,10 @@
           .then(response => response.json())
           .then(data => {
             const title = data.results[0].title;
-            document.getElementById("movie-title").textContent = title;
+            document.getElementById("title").textContent = title;
 
             const synopsis = data.results[0].overview;
-            document.getElementById("specific-data").textContent = synopsis;
+            document.getElementById("synopsis").textContent = synopsis;
           })
           .catch(error => console.log(error));
       }
