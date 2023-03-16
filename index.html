@@ -1,25 +1,18 @@
+<!DOCTYPE html>
 <html>
-
 <head>
-
-<nav>
-  <ul>
-    <!-- changed to "Films" to make it less similar to mainstream titles -->
-    <li><a href="trendingFilms.html">Trending Films</a></li>
-    <li><a href="rateFilm.html">Rate a Film</a></li>
-    <li><a href="about.html">About Us</a></li>
-  </ul>
-</nav>
-  
-<link rel="stylesheet" href="styles.css">
-
+  <link rel="stylesheet" href="styles.css" type="text/css">
 </head>
-
-
-  
 <body>
-  
-   <h1>What movie do want to review?</h1>
+  <nav>
+    <ul>
+      <li><a href="trendingFilms.html">Trending Films</a></li>
+      <li><a href="rateFilm.html">Rate a Film</a></li>
+      <li><a href="about.html">About Us</a></li>
+    </ul>
+  </nav>
+
+  <h1>What movie do you want to review?</h1>
   <input type="text" id="search-input" placeholder="Enter movie title">
   <button onclick="searchAPI()">Search</button>
   <ul id="search-results"></ul>
@@ -39,17 +32,12 @@
             link.href = `movie.html?title=${result.title}`;
             link.innerText = `${index + 1}. ${result.title}`;
             const movieTitle = result.title;
-            localStorage.setItem('movieTitle', result.title) 
+            localStorage.setItem('movie-title', result.title);
             listItem.appendChild(link);
             resultsList.appendChild(listItem);
           });
         });
     }
   </script>
-  
 </body>
-  
 </html>
-
-
-
