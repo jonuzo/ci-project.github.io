@@ -62,7 +62,7 @@
       .then(response => response.json())
       .then(data => {
         const title = data.results[0].title;
-        document.getElementById("movietitle").textContent = title;
+        document.getElementById("movietitle").textContent = movieTitle;
 
         const synopsis = data.results[0].overview;
         const specificData = document.getElementById("specific-data");
