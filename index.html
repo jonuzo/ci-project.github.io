@@ -34,11 +34,12 @@
           const resultsList = document.getElementById("search-results");
           resultsList.innerHTML = "";
           data.results.slice(0, 5).forEach((result, index) => {
-            
             const listItem = document.createElement("li");
             const link = document.createElement("a");
             link.href = "movie.html";
             link.innerText = `${index + 1}. ${result.title}`;
+            const movie_title = result.title;
+            localStorage.setItem('movie_title', result.title) 
             listItem.appendChild(link);
             resultsList.appendChild(listItem);
           });
