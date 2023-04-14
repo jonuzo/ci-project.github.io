@@ -21,10 +21,7 @@
     <div id="specific-data"></div>
   </div>
 
-  <div class="recommendations">
-    <h2>Recommended movies:</h2>
-    <ul id="movie-list"></ul>
-  </div>
+  <div id="recommendations"></div>
 
   <form 
   method="POST" 
@@ -111,28 +108,33 @@
             movieDetails.innerHTML = `<p><strong>Synopsis:</strong> ${synopsis}</p><p><strong>Release Date:</strong> ${releaseDate}</p>`;
             specificData.appendChild(movieDetails);
 
-            fetch(`https://api.themoviedb.org/3/movie/${movieId}/recommendations?api_key=${apiKey}`)
-        .then(response => response.json())
-        .then(data => {
-          const movies = data.results.slice(0, 5);
-          movies.forEach(movie => {
-            const posterUrl = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
-            const name = movie.title;
-            const movieDiv = document.createElement('div');
-            movieDiv.classList.add('movie');
-            const posterImg = document.createElement('img');
-            posterImg.src = posterUrl;
-            posterImg.alt = name;
-            const nameP = document.createElement('p');
-            nameP.textContent = name;
-            movieDiv.appendChild(posterImg);
-            movieDiv.appendChild(nameP);
-            recommendationsContainer.appendChild(movieDiv);
-          });
-        })
-        .catch(error => {
-          console.error(error);
-        });
-    }
+            const recommendationsContainer = document.getElementById("recommendations");
+recommendationsContainer.innerHTML = '<h2>Recommended movies:</h2>';
+            const movieId = data.results[0].id;
+
+
+fetch(`https://api.themoviedb.org/3/movie/${movieId}/recommendations?api_key=${apiKey}`)
+  .then(response => response.json())
+  .then(data => {
+    const movies = data.results.slice(0, 5);
+    movies.forEach(movie => {
+      const posterUrl = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
+      const name = movie.title;
+      const movieDiv = document.createElement('div');
+      movieDiv.classList.add('movie');
+      const posterImg = document.createElement('img');
+      posterImg.src = posterUrl;
+      posterImg.alt = name;
+      const nameP = document.createElement('p');
+      nameP.textContent = name;
+      movieDiv.appendChild(posterImg);
+      movieDiv.appendChild(nameP);
+      recommendationsContainer.appendChild(movieDiv);
+    });
+  })
+  .catch(error => {
+    console.error(error);
+  });
+
   </script>
   </html>
