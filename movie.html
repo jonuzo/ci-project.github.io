@@ -126,10 +126,11 @@
                     const movieTitle = movie.title;
                     const moviePosterPath = movie.poster_path;
                     const movieId = movie.id;
-                  
+                  specificData.innerHTML = `
+                       <p><strong>Check out some similar movies!</strong></p>
+                  `;
                     const movieElement = `
                       <div class="movie">
-                        <p>Check out some similar movies!</p>
                         <a href="details.html?movie-id=${movieId}"><img src="https://image.tmdb.org/t/p/w500${moviePosterPath}" alt="${movieTitle} Poster" /></a>
                         <p>${movieTitle}</p>
                       </div>
