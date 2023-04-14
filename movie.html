@@ -100,7 +100,7 @@
               const movieTitle = data.results[0].title;
               const movieReleaseDate = data.results[0].release_date;
               const movieOverview = data.results[0].overview;
-                  fetch(`https://api.themoviedb.org/3/movie/${movieId}/credits?api_key=${apiKey}`)
+                  fetch(`https://api.themoviedb.org/3/movie/${movieId}/credits?api_key=${apiKey}&language=en-US&page=1&include_adult=false`)
             .then(response => response.json())
             .then(data => {
               const movieDirector = data.crew.filter(member => member.job === "Director")[0].name;
@@ -117,7 +117,7 @@
                 <p><strong>Overview:</strong> ${movieOverview}</p>
               `;
 
-              fetch(`https://api.themoviedb.org/3/movie/${movieId}/recommendations?api_key=${apiKey}`)
+              fetch(`https://api.themoviedb.org/3/movie/${movieId}/recommendations?api_key=${apiKey}&language=en-US&page=1&include_adult=false`)
                 .then(response => response.json())
                 .then(data => {
                   const recommendations = document.getElementById("recommendations");
