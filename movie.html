@@ -68,6 +68,23 @@
     </p>  
   </form>
   
+  <style>
+      #recommendations {
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: scroll;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      .movie {
+        margin-right: 20px;
+      }
+
+      .movie:last-child {
+        margin-right: 0;
+      }
+  </style>
+
   <script>
     function loadSearchData() {
       const searchParams = new URLSearchParams(window.location.search);
