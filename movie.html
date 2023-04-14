@@ -24,7 +24,7 @@
   </div>
 
   <div id="recommendations"></div>
-
+  <div id="check_em_out"></div>
   <form 
     method="POST" 
     action="https://script.google.com/macros/s/AKfycbw4eS4BP64tocIJeeLne9djN4qFM5prfpt54mAvvEjumon3fW9ouYvkLbH4b5sS0kSeXA/exec">
@@ -121,7 +121,11 @@
                 .then(response => response.json())
                 .then(data => {
                   const recommendations = document.getElementById("recommendations");
-                  recommendations.innerHTML = `<p><strong>Check out some similar movies!</strong></p>`;
+                  recommendations.innerHTML = `
+                      <div class="check_em_out">
+                      <p><strong>Check out some similar movies!</strong></p>
+                      </div>
+                      `;
                   data.results.slice(0, 4).forEach(movie => {
                     const movieTitle = movie.title;
                     const link = document.createElement("a");
