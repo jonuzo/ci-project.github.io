@@ -122,7 +122,7 @@
                 .then(data => {
                   const recommendations = document.getElementById("recommendations");
                   recommendations.innerHTML = "";
-                  data.results.slice(0, 6).forEach(movie => {
+                  data.results.slice(0, 4).forEach(movie => {
                     const movieTitle = movie.title;
                     const moviePosterPath = movie.poster_path;
                     const movieId = movie.id;
