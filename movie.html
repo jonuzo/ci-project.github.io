@@ -111,24 +111,28 @@
             movieDetails.innerHTML = `<p><strong>Synopsis:</strong> ${synopsis}</p><p><strong>Release Date:</strong> ${releaseDate}</p>`;
             specificData.appendChild(movieDetails);
 
-            fetch(`https://api.themoviedb.org/3/movie/${data.results[0].id}/recommendations?api_key=6aa86f5797de13c2b8d8eb2581248f51&language=en-US&page=1`)
-              .then(response => response.json())
-              .then(data => {
-                const movieList = document.getElementById("movie-list");
-
-                for (let i = 0; i < 5; i++) {
-                  const listItem = document.createElement("li");
-                  const link = document.createElement("a");
-                  link.href = `rate.html?movie-title=${data.results[i].title}`;
-                  link.textContent = data.results[i].title;
-                  listItem.appendChild(link);
-                  movieList.appendChild(listItem);
-                }
-              })
-              .catch(error => console.error(error));
-          })
-          .catch(error => console.error(error));
-      }
+            fetch(`https://api.themoviedb.org/3/movie/${movieId}/recommendations?api_key=${apiKey}`)
+        .then(response => response.json())
+        .then(data => {
+          const movies = data.results.slice(0, 5);
+          movies.forEach(movie => {
+            const posterUrl = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
+            const name = movie.title;
+            const movieDiv = document.createElement('div');
+            movieDiv.classList.add('movie');
+            const posterImg = document.createElement('img');
+            posterImg.src = posterUrl;
+            posterImg.alt = name;
+            const nameP = document.createElement('p');
+            nameP.textContent = name;
+            movieDiv.appendChild(posterImg);
+            movieDiv.appendChild(nameP);
+            recommendationsContainer.appendChild(movieDiv);
+          });
+        })
+        .catch(error => {
+          console.error(error);
+        });
     }
   </script>
   </html>
