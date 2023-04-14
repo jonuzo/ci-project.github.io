@@ -121,14 +121,11 @@
                 .then(response => response.json())
                 .then(data => {
                   const recommendations = document.getElementById("recommendations");
-                  recommendations.innerHTML = "";
+                  recommendations.innerHTML = "Check out some similar movies!";
                   data.results.slice(0, 4).forEach(movie => {
                     const movieTitle = movie.title;
                     const moviePosterPath = movie.poster_path;
                     const movieId = movie.id;
-                  specificData.innerHTML = `
-                       <p><strong>Check out some similar movies!</strong></p>
-                  `;
                     const movieElement = `
                       <div class="movie">
                         <a href="details.html?movie-id=${movieId}"><img src="https://image.tmdb.org/t/p/w500${moviePosterPath}" alt="${movieTitle} Poster" /></a>
