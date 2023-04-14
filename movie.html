@@ -94,62 +94,60 @@
         fetch(`https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${movieTitle}`)
           .then(response => response.json())
           .then(data => {
-          const firstResult = data.results[0];
-          const movieId = firstResult.id;
-                  loadMovieData(movieId);
-        loadRecommendations(movieId);
+            if (data.results.length > 0) {
+              const movieId = data.results[0].id;
+              const moviePosterPath = data.results[0].poster_path;
+              const movieTitle = data.results[0].title;
+              const movieReleaseDate = data.results[0].release_date;
+              const movieOverview = data.results[0].overview;
+                  fetch(`https://api.themoviedb.org/3/movie/${movieId}/credits?api_key=${apiKey}`)
+            .then(response => response.json())
+            .then(data => {
+              const movieDirector = data.crew.filter(member => member.job === "Director")[0].name;
+              const movieCast = data.cast.slice(0, 5).map(member => member.name).join(", ");
+
+              document.getElementById("movietitle").innerText = movieTitle;
+
+              const specificData = document.getElementById("specific-data");
+              specificData.innerHTML = `
+                <img src="https://image.tmdb.org/t/p/w500${moviePosterPath}" alt="${movieTitle} Poster" />
+                <p><strong>Release date:</strong> ${movieReleaseDate}</p>
+                <p><strong>Director:</strong> ${movieDirector}</p>
+                <p><strong>Cast:</strong> ${movieCast}</p>
+                <p><strong>Overview:</strong> ${movieOverview}</p>
+              `;
+
+              fetch(`https://api.themoviedb.org/3/movie/${movieId}/recommendations?api_key=${apiKey}`)
+                .then(response => response.json())
+                .then(data => {
+                  const recommendations = document.getElementById("recommendations");
+                  recommendations.innerHTML = "";
+                  data.results.slice(0, 6).forEach(movie => {
+                    const movieTitle = movie.title;
+                    const moviePosterPath = movie.poster_path;
+                    const movieId = movie.id;
+
+                    const movieElement = `
+                      <div class="movie">
+                        <a href="details.html?movie-id=${movieId}"><img src="https://image.tmdb.org/t/p/w500${moviePosterPath}" alt="${movieTitle} Poster" /></a>
+                        <p>${movieTitle}</p>
+                      </div>
+                    `;
+
+                    recommendations.insertAdjacentHTML("beforeend", movieElement);
+                  });
+                })
+                .catch(error => console.log(error));
+            })
+            .catch(error => console.log(error));
+        }
       })
-      .catch(error => console.error(error));
-  } else {
-    console.error('No movie title provided');
+      .catch(error => console.log(error));
   }
 }
-
-function loadMovieData(movieId) {
-  fetch(`https://api.themoviedb.org/3/movie/${movieId}?api_key=${apiKey}`)
-    .then(response => response.json())
-    .then(data => {
-      const title = data.title;
-      const overview = data.overview;
-      const posterPath = data.poster_path;
-      const releaseDate = data.release_date;
-      const genres = data.genres.map(genre => genre.name).join(", ");
-
-      const movieTitleElement = document.getElementById('movietitle');
-      movieTitleElement.innerText = title;
-
-      const specificDataElement = document.getElementById('specific-data');
-      const specificDataHtml = `
-        <img src="https://image.tmdb.org/t/p/w500${posterPath}" alt="${title} poster" class="movie-poster">
-        <p><strong>Release date:</strong> ${releaseDate}</p>
-        <p><strong>Genres:</strong> ${genres}</p>
-        <p><strong>Overview:</strong> ${overview}</p>
-      `;
-      specificDataElement.innerHTML = specificDataHtml;
-    })
-    .catch(error => console.error(error));
-}
-
-function loadRecommendations(movieId) {
-  fetch(`https://api.themoviedb.org/3/movie/${movieId}/recommendations?api_key=${apiKey}&page=1`)
-    .then(response => response.json())
-    .then(data => {
-      const recommendations = data.results.slice(0, 10);
-      const recommendationsElement = document.getElementById('recommendations');
-      const recommendationsHtml = recommendations.map(movie => {
-        const title = movie.title;
-        const posterPath = movie.poster_path;
-        return `
-          <div class="movie">
-            <img src="https://image.tmdb.org/t/p/w500${posterPath}" alt="${title} poster" class="movie-poster">
-            <p>${title}</p>
-          </div>
-        `;
-      }).join('');
-      recommendationsElement.innerHTML = recommendationsHtml;
-    })
-    .catch(error => console.error(error));
-}
- </script>
+</script>
 </body>
 </html>
+
+
+
