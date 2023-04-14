@@ -79,7 +79,7 @@
     }
 
     .movie:last-child {
-      margin-right: 0;
+      margin-right: 10px;
     }
   </style>
 
@@ -134,8 +134,8 @@
                         <p>${movieTitle}</p>
                       </div>
                     `;
-                    link.href = `movie.html?movie-title=${movie.title}`;
-                    link.innerText = `${movie.title}`;
+                    link.href = `movie.html?movie-title=${movieTitle}`;
+                    link.innerText = `${movieTitle}`;
 
                     recommendations.insertAdjacentHTML("beforeend", movieElement);
                   });
