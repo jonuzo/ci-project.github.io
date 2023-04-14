@@ -124,7 +124,8 @@
                   recommendations.innerHTML = `<p><strong>Check out some similar movies!</strong></p>`;
                   data.results.slice(0, 4).forEach(movie => {
                     const movieTitle = movie.title;
-                    link.href = `movie.html`;
+                    const link = document.createElement("a");
+                    link.href = `movie.html?movie-title=${result.title}`;
                     const moviePosterPath = movie.poster_path;
                     const movieId = movie.id;
                     const movieElement = `
