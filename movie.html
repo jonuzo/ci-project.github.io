@@ -122,9 +122,11 @@
                 .then(data => {
                   const recommendations = document.getElementById("recommendations");
                   recommendations.innerHTML = `
+                      <br>
                       <div class="check_em_out">
                       <p><strong>Check out some similar movies!</strong></p>
                       </div>
+                      </br>
                       `;
                   data.results.slice(0, 4).forEach(movie => {
                     const movieTitle = movie.title;
