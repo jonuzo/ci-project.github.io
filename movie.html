@@ -111,10 +111,10 @@
               const specificData = document.getElementById("specific-data");
               specificData.innerHTML = `
                 <img src="https://image.tmdb.org/t/p/w500${moviePosterPath}" alt="${movieTitle} Poster" />
-                <p><strong>Release date:,</strong> ${movieReleaseDate}</p>
-                <p><strong>Director:</strong> ${movieDirector}</p>
-                <p><strong>Cast:</strong> ${movieCast}</p>
-                <p><strong>Overview:</strong> ${movieOverview}</p>
+                <p><strong>Release date:,<br /></strong> ${movieReleaseDate}</p>
+                <p><strong>Director:,<br /></strong> ${movieDirector}</p>
+                <p><strong>Cast:,<br /></strong> ${movieCast}</p>
+                <p><strong>Overview:,<br /></strong> ${movieOverview}</p>
               `;
 
               fetch(`https://api.themoviedb.org/3/movie/${movieId}/recommendations?api_key=${apiKey}&language=en-US&page=1&include_adult=false`)
@@ -124,14 +124,11 @@
                   recommendations.innerHTML = `
                       <p></p>
                       <div class="check_em_out">
-                      <p><strong>Check out some similar movies!</strong></p>
+                      <p><strong>Check out some similar movies!,<br /></strong></p>
                       </div>
-                      <p></p>
                       `;
                   data.results.slice(0, 4).forEach(movie => {
-                    const movieTitle = movie.title;
-                    const link = document.createElement("a");
-                    
+                    const movieTitle = movie.title;                    
                     const moviePosterPath = movie.poster_path;
                     const movieId = movie.id;
                     const movieElement = `
@@ -140,8 +137,6 @@
                         <p>${movieTitle}</p>
                       </div>
                     `;
-                    link.href = `movie.html?movie-title=${movieTitle}`;
-                    link.innerHTML = `<p>${movieTitle}</p>`;
 
                     recommendations.insertAdjacentHTML("beforeend", movieElement);
                   });
