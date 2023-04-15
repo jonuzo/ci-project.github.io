@@ -139,7 +139,7 @@
                       </div>
                     `;
                     link.href = `movie.html?movie-title=${movieTitle}`;
-                    link.innerText = `${movieTitle}`;
+                    link.innerHTML = `<p>${movieTitle}</p>`;
 
                     recommendations.insertAdjacentHTML("beforeend", movieElement);
                   });
