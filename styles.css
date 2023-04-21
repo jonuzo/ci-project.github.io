@@ -1,15 +1,164 @@
-body {
-  background-color: white;
+html{
+  padding:0px;
+  position:relative;
 }
+
+body {
+    background-color: #393E46;
+    width:1520px;
+    height:215.04px;
+}
+
 h1 {
   color: black;
 }
+
 h2 {
-  color: black;
+color: black;
 }
+
 h3 {
-  color: black;
+color: black;
 }
-p {
-  color: black;
+
+
+a:link { text-decoration: none; }
+
+a:visited { text-decoration: none; }
+  
+a:hover { text-decoration: none; }
+  
+a:active { text-decoration: none; }
+  
+a{
+  color:#EEEEEE;
+  font-family: 'Arial Rounded MT Bold', sans-serif;
+}
+  
+header{
+  text-align:center;
+  font-family: 'Arial Rounded MT Bold', sans-serif;
+  position: relative;
+  top:0px;
+}
+#headertext{
+  color:#AAD8D3;
+  font-size:52px;
+  background-color:#00ADB5;
+  border-radius:5px;
+  padding-top:10px;
+  padding-bottom:10px;
+  top:-25px;
+  position:relative;
+}
+nav{
+  font-size:36px;
+  background-color:#AAD8D3;
+  text-align:center;
+  font-family: 'Arial Rounded MT Bold', sans-serif;
+}
+#about{
+  top:75%;
+  left:2%;
+  background-color: #AAD8D3;
+  position:absolute;
+  border-radius:5px;
+  padding-top:10px;
+  padding-bottom:10px;
+  padding-left:10px;
+  padding-right:10px;
+}
+
+#home{
+  top:45%;
+  left:2%;
+  background-color: #AAD8D3;
+  position:absolute;
+  border-radius:5px;
+  padding-top:10px;
+  padding-bottom:10px;
+  padding-left:37px;
+  padding-right:36px;
+  font-family: 'Arial Rounded MT Bold', sans-serif;
+}
+
+#whatmovie{
+  position:relative;
+  text-align:center;
+  top:115px;
+  color:#AAD8D3;
+  font-family: 'Arial Rounded MT Bold', sans-serif;
+}
+
+#search-input{
+  position:relative;
+  left:31%;
+  top:120px;
+  width:420px;
+  border-radius:10px;
+  padding-top:10px;
+  padding-bottom:10px;
+  padding-left:37px;
+  padding-right:36px; 
+  font-family: 'Arial Rounded MT Bold', sans-serif; 
+}
+
+#search-button{
+  position:relative;
+  left:31%;
+  top:121px;
+  border-radius:10px;
+  padding-top:10px;
+  padding-bottom:10px;
+  padding-left:10px;
+  padding-right:10px;  
+  font-size:16px;
+  font-family: 'Arial Rounded MT Bold', sans-serif;
+  background-color:#AAD8D3;
+  color:#EEEEEE;
+}
+#search-results{
+  position:absolute;
+  top:137%;
+  font-family: 'Arial Rounded MT Bold', sans-serif;
+  font-size:24px;
+  left:31.45%;
+  background-color: #00ADB5;
+  border-radius:10px;
+  width:450px;
+  list-style-type:none;
+}
+
+#aboutTitle{
+  position:relative;
+  text-align:center;
+  top:0px;
+  font-family: 'Arial Rounded MT Bold', sans-serif;
+  font-size:2em;
+  color:#AAD8D3;
+}
+
+#aboutDescription{
+  position:relative;
+  text-align:center;  
+  top:20px;
+  width:900px;
+  left:20%;
+}
+
+#aboutDescriptionText{
+  font-size:1.35em;
+  font-family: 'Arial Rounded MT Bold', sans-serif;
+  color:#EEEEEE;
+  border-radius:10px;
+  line-height:1.5;
+}
+
+#aboutDescriptionTextEnd{
+  font-size:1.35em;
+  font-family: 'Arial Rounded MT Bold', sans-serif;
+  color:#EEEEEE;
+  border-radius:10px;
+  line-height:1.5;
+  font-weight:bold;
 }
