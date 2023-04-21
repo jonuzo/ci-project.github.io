@@ -58,7 +58,7 @@ nav{
   font-family: 'Arial Rounded MT Bold', sans-serif;
 }
 #about{
-  top:75%;
+  top:65%;
   left:2%;
   background-color: #AAD8D3;
   position:absolute;
@@ -70,7 +70,7 @@ nav{
 }
 
 #home{
-  top:25%;
+  top:45%;
   left:2%;
   background-color: #AAD8D3;
   position:absolute;
