@@ -5,16 +5,21 @@
   <title>Rate a Film</title>
 
   <link rel="stylesheet" type="text/css" href="stars.css">
-  <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="base.css">
-  
+  <link rel="stylesheet" href="styles.css">  
 
 </head>
 
 <body onload="loadSearchData()">
+  <header>
+    <h1 id="headertext">The Casual Reviews</h1>
+  </header>
+
   <nav>
     <ul>
-      <li><a href="index.html">Home</a></li>
+      <a href="about.html" id="about">About Us</a>
+    </ul>
+    <ul>
+      <a href=index.html id="home">Home</a>
     </ul>
   </nav>
 
@@ -25,26 +30,29 @@
 
   <div id="recommendations"></div>
   <div id="check_em_out"></div>
+
+  <h1 id="postareview">Post a review</h1>
+
   <form 
     method="POST" 
     action="https://script.google.com/macros/s/AKfycbw4eS4BP64tocIJeeLne9djN4qFM5prfpt54mAvvEjumon3fW9ouYvkLbH4b5sS0kSeXA/exec">
   
-    <p>
+    <p id="filmtext">
       <label for="Film">Film:</label>
       <input name="Film" type="text" placeholder="Film" required>
     </p>
   
-    <p>
+    <p id="reviewertext">
       <label for="Reviewer">Reviewer:</label>
       <input name="Reviewer" type="text" placeholder="Reviewer" required>
     </p>
   
-    <p>
+    <p id="commenttext">
       <label for="Comment">Comment:</label>
       <textarea id="Comment" name="Comment" rows="5" cols="40" placeholder="Comment"></textarea>
     </p>
   
-    <p>
+    <p id="rateitbelow">
       <label for="rate_title">Rate it below:</label>
     </p>
   
@@ -61,16 +69,18 @@
       <label for="star1" title="text">1 star</label>
     </div>
   
-    <p>
+    <p id="buttonsubmit">
       <button type="submit">Submit</button>
     </p>  
   </form>
   
+  <h1 id="reccmoviestext">Check out these movies!</h1>
+
   <style>
     #recommendations {
       display: flex;
       flex-wrap: nowrap;
-      overflow-x: scroll;
+      overflow-x: hidden;
       -webkit-overflow-scrolling: touch;
     }
 
@@ -127,7 +137,7 @@
                       <p> </p>
                       <p> </p>
                       <div class="check_em_out">
-                      <p><strong>Check out some similar movies!</strong></p>
+                      <p id="similarmoviestext"><strong>Check out some similar movies!</strong></p>
                       </div>
                       <p> </p>
                       <p></p>
@@ -157,6 +167,5 @@
 </script>
 </body>
 </html>
-
 
 
