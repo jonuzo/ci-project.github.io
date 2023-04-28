@@ -1,12 +1,12 @@
+
 html{
   padding:0px;
   position:relative;
 }
 
 body {
-    background-color: #393E46;
-    width:1520px;
-    height:215.04px;
+  background-color: #393E46;
+  overflow: hidden;
 }
 
 h1 {
@@ -48,7 +48,7 @@ header{
   border-radius:5px;
   padding-top:10px;
   padding-bottom:10px;
-  top:-25px;
+  top: -25px;
   position:relative;
 }
 nav{
@@ -58,7 +58,7 @@ nav{
   font-family: 'Arial Rounded MT Bold', sans-serif;
 }
 #about{
-  top:75%;
+  top:182px;
   left:2%;
   background-color: #AAD8D3;
   position:absolute;
@@ -70,7 +70,7 @@ nav{
 }
 
 #home{
-  top:45%;
+  top:105px;
   left:2%;
   background-color: #AAD8D3;
   position:absolute;
@@ -161,4 +161,191 @@ nav{
   border-radius:10px;
   line-height:1.5;
   font-weight:bold;
+}
+
+#specific-data{
+  position: absolute;
+  text-align: center;
+}
+
+#specific-data img{
+  position: absolute;
+  left: 235px;
+  top: -70px;
+  width:250px;
+  height:350px;
+  box-shadow: 0 0 3px 1px rgba(0,0,0,0.5);
+}
+
+#movietitle{
+  font-size:30px;
+  line-height:1.5;
+  font-family: 'Arial Rounded MT Bold', sans-serif;
+  text-align: center;
+  position: relative;
+  color: #AAD8D3;
+  top:-50px;  
+  width:760px;
+  left:380px;
+  text-overflow:clip;
+}
+
+#specific-data p:nth-last-child(5){
+  font-size:18px;
+  line-height:1.5;
+  font-family: 'Arial Rounded MT Bold', sans-serif;
+  text-align: left;
+  top: -75px;
+  width:500px;
+  left: 520px;
+  position: absolute;
+  color: #EEEEEE;
+}
+
+#specific-data p:nth-last-child(4){
+  font-size:18px;
+  line-height:1.5;
+  font-family: 'Arial Rounded MT Bold', sans-serif;
+  text-align: left;
+  top: -30px;
+  width:500px;
+  left: 520px;
+  position: absolute;
+  color: #EEEEEE;
+}
+
+#specific-data p:nth-last-child(3){
+  font-size:18px;
+  line-height:1.5;
+  font-family: 'Arial Rounded MT Bold', sans-serif;
+  text-align: left;
+  top:15px;
+  width:500px;
+  left: 520px;
+  position: absolute;
+  color: #EEEEEE;
+}
+
+#specific-data p:nth-last-child(2){
+  font-size:16px;
+  line-height:1.5;
+  font-family: 'Arial Rounded MT Bold', sans-serif;
+  text-align: left;
+  top:85px;
+  width:500px;
+  left: 520px;
+  position: absolute;
+  color: #EEEEEE;
+}
+
+#postareview{
+  left: 525px;
+  font-size:36px;
+  line-height:1.5;
+  font-family: 'Arial Rounded MT Bold', sans-serif;
+  text-align: center;
+  position: relative;
+  color: #AAD8D3;
+  top:-124px;
+}
+
+#filmtext{
+  position:absolute;
+  left:1125px;
+  top:135px;
+  font-family: 'Arial Rounded MT Bold', sans-serif;
+  color: #EEEEEE;
+  border-radius:5px;
+  font-size:18px;
+}
+
+#reviewertext{
+  position:absolute;
+  left:1125px;
+  top:200px;
+  font-family: 'Arial Rounded MT Bold', sans-serif;
+  color: #EEEEEE;
+  border-radius:5px;
+  font-size:18px;
+}
+
+#reviewertext{
+  position:absolute;
+  left:1125px;
+  top:200px;
+  font-family: 'Arial Rounded MT Bold', sans-serif;
+  color: #EEEEEE;
+  border-radius:5px;
+  font-size:18px;
+}
+
+#commenttext{
+  position:absolute;
+  left:1125px;
+  top:260px;
+  font-family: 'Arial Rounded MT Bold', sans-serif;
+  color: #EEEEEE;
+  border-radius:5px;
+  font-size:18px;
+}
+
+#rateitbelow{
+  position:absolute;
+  left:1125px;
+  top:375px;
+  font-family: 'Arial Rounded MT Bold', sans-serif;
+  color: #EEEEEE;
+  border-radius:5px;
+  font-size:18px;
+}
+
+#recommendations{
+  position:absolute;
+  top: 565px;
+  overflow:hidden;
+  left:242px;
+}
+
+.movie img{
+  width:115px;
+  height:165px;
+  box-shadow: 0 0 3px 1px rgba(0,0,0,0.5);
+}
+
+label{
+  display:block;
+}
+
+.rate{
+  position:relative;
+  left:1125px;
+  top:125px;
+}
+
+#buttonsubmit{
+  position:relative;
+  left:947px;
+  top:170px;
+  border-radius:5px;
+}
+
+#similarmoviestext{
+  position:absolute;
+  font-family: 'Arial Rounded MT Bold', sans-serif;
+  color: #AAD8D3;
+  font-size:24px;
+  top:-500px;
+}
+
+.movie p {
+  color:#EEEEEE;
+  font-size:16px;
+}
+
+#reccmoviestext{
+  color:#AAD8D3;
+  font-size: 24px;
+  position:relative;
+  top:190px;
+  left:65px;
 }
