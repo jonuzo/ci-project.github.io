@@ -127,11 +127,31 @@
   });
       
     </script>
+ <h1>Top 5 Trending Movies of the Week</h1>
+ <div id="movies"></div>   
     
-    
-   
-    <script>
-      const apiKey = '6aa86f5797de13c2b8d8eb2581248f51';
+  <script>
+    const apiKey = '6aa86f5797de13c2b8d8eb2581248f51';
+    const apiUrl = `https://api.themoviedb.org/3/trending/movie/week?api_key=${apiKey}`;
+
+    fetch(apiUrl)
+      .then(response => response.json())
+      .then(data => {
+        const movies = data.results.slice(0, 5); // Extract top 5 movies
+        const moviesContainer = document.getElementById('movies');
+        movies.forEach(movie => {
+          const movieElement = document.createElement('div');
+          const titleElement = document.createElement('h2');
+          const posterElement = document.createElement('img');
+          titleElement.textContent = movie.title;
+          posterElement.src = `https://image.tmdb.org/t/p/w500/${movie.poster_path}`;
+          movieElement.appendChild(titleElement);
+          movieElement.appendChild(posterElement);
+          moviesContainer.appendChild(movieElement);
+        });
+      })
+      .catch(error => console.error(error));
+    </script>
 
     <script>
       function searchAPI() {   <!-- used to extract data from API-->
