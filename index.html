@@ -127,34 +127,48 @@
   });
       
     </script>
- <h1>Top 5 Trending Movies of the Week</h1>
- <div id="movies"></div>   
- <meta charset="utf-8">
- <style>
-    body {
-      margin-top: 40px;
-    }
-    #movies {
-      display: flex;
-      flex-wrap: nowrap;
-      overflow-x: auto;
-    }
-    .movie {
-      margin-right: 20px;
-    }
-    .movie:last-child {
-      margin-right: 0;
-    }
-    .movie-container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    .movie h2 {
-      font-size: 18px;
-    }
+ 
+    <style>
+  #movies {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+  }
+  
+  .movie-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .movie-container img {
+    margin-top: 10px;
+    max-width: 100%;
+    height: auto;
+  }
+  
+  .movie-container a {
+    text-decoration: none;
+    color: black;
+  }
+  
+  .movie-container h2 {
+    font-size: 24px;
+    margin: 0;
+  }
+  
+  .movie {
+    display: inline-block;
+    margin: 10px;
+  }
+</style>
 
-  </style>   
+<body>
+  <h1>Top 5 Trending Movies of the Week</h1>
+  <div id="movies"></div>
+
   <script>
     const apiKey = '6aa86f5797de13c2b8d8eb2581248f51';
     const apiUrl = `https://api.themoviedb.org/3/trending/movie/week?api_key=${apiKey}`;
@@ -184,6 +198,8 @@
       })
       .catch(error => console.error(error));
   </script>
+</body>
+
 
     <script>
       function searchAPI() {   <!-- used to extract data from API-->
