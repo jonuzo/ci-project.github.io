@@ -18,11 +18,14 @@
       </ul>
     </nav>
 
-    <h1 id="whatmovie">What movie would you like to review?</h1>
-
+    <div style="display: flex; flex-direction: column; align-items: center; margin-top: 50px;">
+  <h1 id="whatmovie" style="margin-bottom: 20px;">What movie would you like to review?</h1>
+  <div style="display: flex; align-items: center;">
     <input type="text" id="search-input" placeholder="Enter your movie title...">
-    <button onclick="searchAPI()" id="search-button">Search</button>   <!--Clicking search button executes searchAPI()--> 
-    <ul id="search-results"></ul>
+    <button onclick="searchAPI()" id="search-button">Search</button>
+  </div>
+  <ul id="search-results"></ul>
+</div>
     
 
 
