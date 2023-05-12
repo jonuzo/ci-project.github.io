@@ -23,7 +23,8 @@
     <input type="text" id="search-input" placeholder="Enter your movie title...">
     <button onclick="searchAPI()" id="search-button">Search</button>   <!--Clicking search button executes searchAPI()--> 
     <ul id="search-results"></ul>
-    
+    <div id="movies"></div>
+
     <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-auth.js"></script>
 
@@ -181,6 +182,7 @@
         .catch(error => console.error(error));
      
 }
+    TrendingList()
     </script>
   </body>
 </html>
