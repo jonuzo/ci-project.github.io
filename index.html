@@ -132,6 +132,25 @@
       
     </script>
 
+    <style>
+    .movie-list {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .movie {
+      flex: 0 0 auto;
+      margin-right: 20px;
+    }
+
+    .movie:last-child {
+      margin-right: 0;
+    }
+
+    </style>
+
+
     <script>
       function searchAPI() {   <!-- used to extract data from API-->
         const searchQuery = document.getElementById("search-input").value;
