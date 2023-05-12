@@ -133,6 +133,38 @@
     
 
 
+    
+
+<style>
+  #wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #search-bar {
+    margin-bottom: 20px;
+  }
+
+  #movies {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .movie {
+    margin-right: 20px;
+  }
+
+  .movie:last-child {
+    margin-right: 10px;
+  }
+</style>
+
+<div id="wrapper">
+  <div id="search-bar">
+    <!-- Search bar code here -->
     <script>
       function searchAPI() {   <!-- used to extract data from API-->
         const searchQuery = document.getElementById("search-input").value;
@@ -155,25 +187,12 @@
           });
       }
     </script>
+  </div>
 
- <style>
-    #movies {
-      display: flex;
-      flex-wrap: nowrap;
-      overflow-x: hidden;
-      -webkit-overflow-scrolling: touch;
-    }
+  <div id="movies"></div>
+</div>
 
-    .movie {
-      margin-right: 20px;
-    }
 
-    .movie:last-child {
-      margin-right: 10px;
-    }
-  </style>
-
-<div id="movies"></div>
 
   <script>
     const apiKey = '6aa86f5797de13c2b8d8eb2581248f51';
