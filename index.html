@@ -130,75 +130,20 @@
       
     </script>
 
-    
-
-
-    
-
-<style>
-  #wrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  #search-bar {
-    margin-bottom: 80px;
-  }
-
-  #movies {
-    display: flex;
-    flex-wrap: nowrap;
-    overflow-x: hidden;
-    -webkit-overflow-scrolling: touch;
-  }
-
-  .movie {
-    margin-right: 20px;
-  }
-
-  .movie:last-child {
-    margin-right: 10px;
-  }
-</style>
-
-<div id="wrapper">
-  <div id="search-bar">
-    <!-- Search bar code here -->
-    <script>
-      function searchAPI() {   <!-- used to extract data from API-->
-        const searchQuery = document.getElementById("search-input").value;
-        const apiUrl = `https://api.themoviedb.org/3/search/movie?api_key=6aa86f5797de13c2b8d8eb2581248f51&language=en-US&query=${searchQuery}&page=1&include_adult=false`;
-        fetch(apiUrl)
-          .then(response => response.json())  <!--Data recieved in json format-->
-          .then(data => {
-            const resultsList = document.getElementById("search-results");
-            resultsList.innerHTML = "";
-            data.results.slice(0, 5).forEach((result, index) => {
-              const listItem = document.createElement("li");
-              const link = document.createElement("a");
-              link.href = `movie.html?movie-title=${result.title}`;     <!--creates a link on each movie title in results list--> 
-              link.innerText = `${index + 1}. ${result.title}`;
-              const movieTitle = result.title;
-              localStorage.setItem('movie-title', result.title);       
-              listItem.appendChild(link);
-              resultsList.appendChild(listItem);
-            });
-          });
-      }
-    </script>
-  </div>
-
-  <div id="movies"></div>
+<div>
+  <label for="search-input">Search movies:</label>
+  <input type="text" id="search-input">
+  <button onclick="searchAPI()">Search</button>
+  <ul id="search-results"></ul>
 </div>
 
+<div id="movies"></div>
 
+<script>
+  const apiKey = '6aa86f5797de13c2b8d8eb2581248f51';
+  const apiUrl = `https://api.themoviedb.org/3/trending/movie/week?api_key=${apiKey}`;
 
-  <script>
-    const apiKey = '6aa86f5797de13c2b8d8eb2581248f51';
-    const apiUrl = `https://api.themoviedb.org/3/trending/movie/week?api_key=${apiKey}`;
-
-    fetch(apiUrl)
+  fetch(apiUrl)
     .then(response => response.json())
     .then(data => {
       const movies = data.results.slice(0, 5); // Extract top 5 movies
@@ -219,8 +164,46 @@
       });
     })
     .catch(error => console.error(error));
+
+  function searchAPI() {
+    const searchQuery = document.getElementById("search-input").value;
+    const apiUrl = `https://api.themoviedb.org/3/search/movie?api_key=6aa86f5797de13c2b8d8eb2581248f51&language=en-US&query=${searchQuery}&page=1&include_adult=false`;
+    fetch(apiUrl)
+      .then(response => response.json())
+      .then(data => {
+        const resultsList = document.getElementById("search-results");
+        resultsList.innerHTML = "";
+        data.results.slice(0, 5).forEach((result, index) => {
+          const listItem = document.createElement("li");
+          const link = document.createElement("a");
+          link.href = `movie.html?movie-title=${result.title}`;
+          link.innerText = `${index + 1}. ${result.title}`;
+          const movieTitle = result.title;
+          localStorage.setItem('movie-title', result.title);
+          listItem.appendChild(link);
+          resultsList.appendChild(listItem);
+        });
+      });
+  }
 </script>
-    
-    
+
+<style>
+  #movies {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .movie {
+    margin-right: 20px;
+  }
+
+  .movie:last-child {
+    margin-right: 10px;
+  }
+</style>
+
+
   </body>
 </html>
