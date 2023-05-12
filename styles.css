@@ -85,15 +85,15 @@ nav{
 #whatmovie{
   position:relative;
   text-align:center;
-  top:115px;
+  top:-15px;
   color:#AAD8D3;
   font-family: 'Arial Rounded MT Bold', sans-serif;
 }
 
 #search-input{
   position:relative;
-  left:31%;
-  top:120px;
+  left:0px;
+  top:5px;
   width:420px;
   border-radius:10px;
   padding-top:10px;
@@ -105,8 +105,8 @@ nav{
 
 #search-button{
   position:relative;
-  left:31%;
-  top:121px;
+  left:5px;
+  top:8px;
   border-radius:10px;
   padding-top:10px;
   padding-bottom:10px;
