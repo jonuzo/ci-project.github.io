@@ -29,6 +29,112 @@
     
 
 
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-auth.js"></script>
+
+    
+    <script>
+      
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "firebase/app";
+    import { getAnalytics } from "firebase/analytics";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    const firebaseConfig = {
+    apiKey: "AIzaSyAyg8NJXvigvm1rn8cwh-h42xHjaq5KHGM",
+    authDomain: "accounts-d66dd.firebaseapp.com",
+    projectId: "accounts-d66dd",
+    storageBucket: "accounts-d66dd.appspot.com",
+    messagingSenderId: "380115432865",
+    appId: "1:380115432865:web:41ad9d686face3bc6807e0",
+    measurementId: "G-6YWES12JGH"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+      
+    </script>
+    
+  
+    
+    
+    <script>
+      
+      // Handle sign-up
+  const signUpForm = document.querySelector("#signUpForm");
+  signUpForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+    const email = signUpForm.email.value;
+    const password = signUpForm.password.value;
+
+    firebase.auth().createUserWithEmailAndPassword(email, password)
+      .then((userCredential) => {
+        // User signed up successfully
+        const user = userCredential.user;
+        console.log(user);
+      })
+      .catch((error) => {
+        // Error occurred while signing up
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.log(errorCode, errorMessage);
+      });
+  });
+
+  // Handle sign-in
+  const signInForm = document.querySelector("#signInForm");
+  signInForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+    const email = signInForm.email.value;
+    const password = signInForm.password.value;
+
+    firebase.auth().signInWithEmailAndPassword(email, password)
+      .then((userCredential) => {
+        // User signed in successfully
+        const user = userCredential.user;
+        console.log(user);
+      })
+      .catch((error) => {
+        // Error occurred while signing in
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.log(errorCode, errorMessage);
+      });
+  });
+
+  // Handle sign-out
+  const signOutButton = document.querySelector("#signOutButton");
+  signOutButton.addEventListener("click", () => {
+    firebase.auth().signOut()
+      .then(() => {
+        // User signed out successfully
+        console.log("User signed out");
+      })
+      .catch((error) => {
+        // Error occurred while signing out
+        console.log(error);
+      });
+  });
+
+  // Check authentication state on page load
+  firebase.auth().onAuthStateChanged((user) => {
+    if (user) {
+      // User is signed in
+      console.log(user);
+    } else {
+      // User is signed out
+      console.log("User is signed out");
+    }
+  });
+      
+    </script>
+
+
+
 
 
 <script>
@@ -105,7 +211,7 @@
   .footer{ 
        position: fixed;     
        text-align: center;    
-       bottom: 105px; 
+       bottom: 125px; 
        width: 100%;
        font-size: 30px;
        font-family: "Comic Sans MS", "Comic Sans", cursive; 
