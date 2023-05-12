@@ -18,12 +18,17 @@
       </ul>
     </nav>
 
-    <h1 id="whatmovie">What movie would you like to review?</h1>
-
+    <div style="display: flex; flex-direction: column; align-items: center; margin-top: 50px;">
+  <h1 id="whatmovie" style="margin-bottom: 20px;">What movie would you like to review?</h1>
+  <div style="display: flex; align-items: center;">
     <input type="text" id="search-input" placeholder="Enter your movie title...">
-    <button onclick="searchAPI()" id="search-button">Search</button>   <!--Clicking search button executes searchAPI()--> 
-    <ul id="search-results"></ul>
+    <button onclick="searchAPI()" id="search-button">Search</button>
+  </div>
+  <ul id="search-results"></ul>
+</div>
     
+
+
     <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-auth.js"></script>
 
@@ -127,79 +132,129 @@
   });
       
     </script>
- <h1>Top 5 Trending Movies of the Week</h1>
- <div id="movies"></div>   
- <meta charset="utf-8">
- <style>
-    body {
-      margin-top: 70px;
-    }
-    #movies {
-      display: flex;
-      flex-wrap: nowrap;
-      overflow-x: auto;
-    }
-    .movie {
-      margin-right: 20px;
-    }
-    .movie:last-child {
-      margin-right: 0;
-    }
-    .movie-container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    .movie h2 {
-      font-size: 18px;
-    }
 
-  </style>   
-  <script>
-    const apiKey = '6aa86f5797de13c2b8d8eb2581248f51';
-    const apiUrl = `https://api.themoviedb.org/3/trending/movie/week?api_key=${apiKey}`;
 
+
+
+
+<script>
+
+  function searchAPI() {
+    const searchQuery = document.getElementById("search-input").value;
+    const apiUrl = `https://api.themoviedb.org/3/search/movie?api_key=6aa86f5797de13c2b8d8eb2581248f51&language=en-US&query=${searchQuery}&page=1&include_adult=false`;
     fetch(apiUrl)
       .then(response => response.json())
       .then(data => {
-        const movies = data.results.slice(0, 5); // Extract top 5 movies
-        const moviesContainer = document.getElementById('movies');
-        movies.forEach(movie => {
-          const movieElement = document.createElement('div');
-          movieElement.classList.add('movie');
-          const titleElement = document.createElement('h2');
-          const posterElement = document.createElement('img');
-          titleElement.textContent = movie.title;
-          posterElement.src = `https://image.tmdb.org/t/p/w500/${movie.poster_path}`;
-          movieElement.appendChild(titleElement);
-          movieElement.appendChild(posterElement);
-          moviesContainer.appendChild(movieElement);
+        const resultsList = document.getElementById("search-results");
+        resultsList.innerHTML = "";
+        data.results.slice(0, 5).forEach((result, index) => {
+          const listItem = document.createElement("li");
+          const link = document.createElement("a");
+          link.href = `movie.html?movie-title=${result.title}`;
+          link.innerText = `${index + 1}. ${result.title}`;
+          const movieTitle = result.title;
+          localStorage.setItem('movie-title', result.title);
+          listItem.appendChild(link);
+          resultsList.appendChild(listItem);
         });
-      })
-      .catch(error => console.error(error));
-  </script>
+      });
+  }
+</script>
 
-    <script>
-      function searchAPI() {   <!-- used to extract data from API-->
-        const searchQuery = document.getElementById("search-input").value;
-        const apiUrl = `https://api.themoviedb.org/3/search/movie?api_key=6aa86f5797de13c2b8d8eb2581248f51&language=en-US&query=${searchQuery}&page=1&include_adult=false`;
-        fetch(apiUrl)
-          .then(response => response.json())  <!--Data recieved in json format-->
-          .then(data => {
-            const resultsList = document.getElementById("search-results");
-            resultsList.innerHTML = "";
-            data.results.slice(0, 5).forEach((result, index) => {
-              const listItem = document.createElement("li");
-              const link = document.createElement("a");
-              link.href = `movie.html?movie-title=${result.title}`;     <!--creates a link on each movie title in results list--> 
-              link.innerText = `${index + 1}. ${result.title}`;
-              const movieTitle = result.title;
-              localStorage.setItem('movie-title', result.title);       
-              listItem.appendChild(link);
-              resultsList.appendChild(listItem);
-            });
-          });
-      }
-    </script>
+<div id="movies"></div>
+
+
+<script>
+  const apiKey = '6aa86f5797de13c2b8d8eb2581248f51';
+  const apiUrl = `https://api.themoviedb.org/3/trending/movie/week?api_key=${apiKey}`;
+
+  fetch(apiUrl)
+    .then(response => response.json())
+    .then(data => {
+      const movies = data.results.slice(0, 5); // Extract top 5 movies
+      const moviesContainer = document.getElementById('movies');
+      movies.forEach(movie => {
+        const movieElement = document.createElement('div');
+        movieElement.classList.add('movie');
+        const movieContainer = document.createElement('div'); // Create container for title and poster
+        movieContainer.classList.add('movie-container');
+        const titleElement = document.createElement('h2');
+        const posterElement = document.createElement('img');
+        titleElement.textContent = movie.title;
+        posterElement.src = `https://image.tmdb.org/t/p/w500/${movie.poster_path}`;
+        movieContainer.appendChild(titleElement); // Add title element to container
+        movieContainer.appendChild(posterElement); // Add poster element to container
+        movieElement.appendChild(movieContainer); // Add container to movie element
+        moviesContainer.appendChild(movieElement);
+      });
+    })
+    .catch(error => console.error(error));
+</script>
+
+<div class="footer">Check out this week's Trending Movies!</div>
+
+
+<style>
+  #movies {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    justify-content: flex-end;
+    position: fixed;
+    bottom: 0;
+    right: 10px;
+    left: 10px;
+    
+}
+  
+  .footer{ 
+       position: fixed;     
+       text-align: center;    
+       bottom: 105px; 
+       width: 100%;
+       font-size: 30px;
+       font-family: "Comic Sans MS", "Comic Sans", cursive; 
+       color:#00ADB5 
+  }
+
+  
+  .movie {
+    margin-right: 10px;
+  }
+
+  .movie:last-child {
+    margin-right: 20px;
+  }
+
+   .movie-poster {
+    margin-bottom: 40px;
+  }  
+
+  .movie-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 160px;
+  position: relative;
+  right: 150px;
+  padding-top: 90px;
+ }
+
+  #whatmovie {
+  margin-top: 10px;
+  }
+
+  #search-input {
+    margin-top: 5px;
+  }
+
+  .movie h2 {
+    font-size: 18px;
+
+</style>
+
+
   </body>
 </html>
