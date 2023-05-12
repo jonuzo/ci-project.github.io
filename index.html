@@ -131,23 +131,7 @@
       
     </script>
 
-    <style>
-    .movie-list {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .movie {
-      flex: 0 0 auto;
-      margin-right: 20px;
-    }
-
-    .movie:last-child {
-      margin-right: 0;
-    }
-
-    </style>
+    
 
 
     <script>
@@ -173,37 +157,49 @@
       }
     </script>
 
-    <script>
-     
-      const apiKey = '6aa86f5797de13c2b8d8eb2581248f51';
-      const apiUrl = `https://api.themoviedb.org/3/trending/movie/week?api_key=${apiKey}`;
+    <style>
+    body {
+      margin-top: 50px;
+    }
+    #movies {
+      display: flex;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+    }
+    .movie {
+      margin-right: 20px;
+    }
+    .movie:last-child {
+      margin-right: 0;
+    }
+    .movie h2 {
+      font-size: 18px;
+    }
+  </style>
 
-      fetch(apiUrl)
-        .then(response => response.json())
-        .then(data => {
-          const moviesContainer = document.getElementById('movies');
-          const movies = data.results.slice(0, 5); // Extract top 5 movies
-          movies.forEach(movie => {
-            const movieElement = document.createElement('div');
-            movieElement.classList.add('movie');
-            const movieContainer = document.createElement('div'); // Create container for title and poster
-            movieContainer.classList.add('movie-container');
-            const titleElement = document.createElement('h2');
-            const posterElement = document.createElement('img');
-            const linkElement = document.createElement('a'); // Create anchor element
-            linkElement.href = 'movie.html'; // Set href attribute to movie.html
-            titleElement.textContent = movie.title;
-            posterElement.src = `https://image.tmdb.org/t/p/w500/${movie.poster_path}`;
-            linkElement.appendChild(titleElement); // Wrap title element in anchor element
-            movieContainer.appendChild(linkElement); // Add title element to container
-            movieContainer.appendChild(posterElement); // Add poster element to container
-            movieElement.appendChild(movieContainer); // Add container to movie element
-            moviesContainer.appendChild(movieElement);
-          });
-        })
-        .catch(error => console.error(error));
-     
-    </script>
+    <script>
+    const apiKey = '6aa86f5797de13c2b8d8eb2581248f51';
+    const apiUrl = `https://api.themoviedb.org/3/trending/movie/week?api_key=${apiKey}`;
+
+    fetch(apiUrl)
+      .then(response => response.json())
+      .then(data => {
+        const movies = data.results.slice(0, 5); // Extract top 5 movies
+        const moviesContainer = document.getElementById('movies');
+        movies.forEach(movie => {
+          const movieElement = document.createElement('div');
+          movieElement.classList.add('movie');
+          const titleElement = document.createElement('h2');
+          const posterElement = document.createElement('img');
+          titleElement.textContent = movie.title;
+          posterElement.src = `https://image.tmdb.org/t/p/w500/${movie.poster_path}`;
+          movieElement.appendChild(titleElement);
+          movieElement.appendChild(posterElement);
+          moviesContainer.appendChild(movieElement);
+        });
+      })
+      .catch(error => console.error(error));
+  </script>
     
   </body>
 </html>
