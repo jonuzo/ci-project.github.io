@@ -178,7 +178,7 @@
         movieElement.classList.add('movie');
         const movieContainer = document.createElement('div'); // Create container for title and poster
         movieContainer.classList.add('movie-container');
-        const titleElement = document.createElement('h2');
+        const titleElement = document.createElement('p');
         const posterElement = document.createElement('img');
         titleElement.textContent = movie.title;
         posterElement.src = `https://image.tmdb.org/t/p/w500/${movie.poster_path}`;
@@ -195,28 +195,8 @@
 
 
 <style>
-  #movies {
-    display: flex;
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    justify-content: flex-end;
-    position: fixed;
-    bottom: 0;
-    right: 10px;
-    left: 10px;
-    
-}
+
   
-  .footer{ 
-       position: fixed;     
-       text-align: center;    
-       bottom: 105px; 
-       width: 100%;
-       font-size: 30px;
-       font-family: "Comic Sans MS", "Comic Sans", cursive; 
-       color:#00ADB5 
-  }
 
   
   .movie {
@@ -231,16 +211,6 @@
     margin-bottom: 40px;
   }  
 
-  .movie-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  margin-bottom: 160px;
-  position: relative;
-  right: 150px;
-  padding-top: 90px;
- }
 
   #whatmovie {
   margin-top: 10px;
