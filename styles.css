@@ -21,6 +21,7 @@ h3 {
 color: black;
 }
 
+@keyframes fadeIn {   0% { opacity: 0; }   100% { opacity: 1; } }
 
 a:link { text-decoration: none; }
 
@@ -41,6 +42,7 @@ header{
   position: relative;
   top:0px;
 }
+
 #headertext{
   color:#AAD8D3;
   font-size:52px;
@@ -51,6 +53,7 @@ header{
   top: -25px;
   position:relative;
 }
+
 nav{
   font-size:36px;
   background-color:#AAD8D3;
@@ -67,6 +70,10 @@ nav{
   padding-bottom:10px;
   padding-left:10px;
   padding-right:10px;
+  opacity:0%;
+  animation: fadeIn 2s; 
+  animation-delay: 0.5s;
+  animation-fill-mode:forwards;
 }
 
 #home{
@@ -80,6 +87,10 @@ nav{
   padding-left:37px;
   padding-right:36px;
   font-family: 'Arial Rounded MT Bold', sans-serif;
+  opacity:0%;
+  animation: fadeIn 2s; 
+  animation-delay: 0.25s;
+  animation-fill-mode:forwards;
 }
 
 #whatmovie{
@@ -88,6 +99,10 @@ nav{
   top:-15px;
   color:#AAD8D3;
   font-family: 'Arial Rounded MT Bold', sans-serif;
+  opacity:0%;
+  animation: fadeIn 2s; 
+  animation-delay: 0s;
+  animation-fill-mode:forwards;
 }
 
 #search-input{
@@ -101,6 +116,10 @@ nav{
   padding-left:37px;
   padding-right:36px; 
   font-family: 'Arial Rounded MT Bold', sans-serif; 
+  opacity:0%;
+  animation: fadeIn 2s; 
+  animation-delay: 0.25s;
+  animation-fill-mode:forwards;
 }
 
 #search-button{
@@ -116,7 +135,12 @@ nav{
   font-family: 'Arial Rounded MT Bold', sans-serif;
   background-color:#AAD8D3;
   color:#EEEEEE;
+  opacity:0%;
+  animation: fadeIn 2s; 
+  animation-delay: 0.25s;
+  animation-fill-mode:forwards;
 }
+
 #search-results{
   position:absolute;
   top:258px;
@@ -136,6 +160,10 @@ nav{
   font-family: 'Arial Rounded MT Bold', sans-serif;
   font-size:2em;
   color:#AAD8D3;
+  opacity:0%;
+  animation: fadeIn 2s; 
+  animation-delay: 0s;
+  animation-fill-mode:forwards;
 }
 
 #aboutDescription{
@@ -146,12 +174,40 @@ nav{
   left:20%;
 }
 
-#aboutDescriptionText{
+#aboutDescriptionTextp1{
   font-size:1.35em;
   font-family: 'Arial Rounded MT Bold', sans-serif;
   color:#EEEEEE;
   border-radius:10px;
   line-height:1.5;
+  opacity:0%;
+  animation: fadeIn 2s; 
+  animation-delay: 0.25s;
+  animation-fill-mode:forwards;
+}
+
+#aboutDescriptionTextp2{
+  font-size:1.35em;
+  font-family: 'Arial Rounded MT Bold', sans-serif;
+  color:#EEEEEE;
+  border-radius:10px;
+  line-height:1.5;
+  opacity:0%;
+  animation: fadeIn 2s; 
+  animation-delay: 0.5s;
+  animation-fill-mode:forwards;
+}
+
+#aboutDescriptionTextp3{
+  font-size:1.35em;
+  font-family: 'Arial Rounded MT Bold', sans-serif;
+  color:#EEEEEE;
+  border-radius:10px;
+  line-height:1.5;
+  opacity:0%;
+  animation: fadeIn 2s; 
+  animation-delay: 0.75s;
+  animation-fill-mode:forwards;
 }
 
 #aboutDescriptionTextEnd{
@@ -161,6 +217,10 @@ nav{
   border-radius:10px;
   line-height:1.5;
   font-weight:bold;
+  opacity:0%;
+  animation: fadeIn 2s; 
+  animation-delay: 1.5s;
+  animation-fill-mode:forwards;
 }
 
 #specific-data{
@@ -175,6 +235,11 @@ nav{
   width:250px;
   height:350px;
   box-shadow: 0 0 3px 1px rgba(0,0,0,0.5);
+
+  opacity:0%;
+  animation: fadeIn 2s; 
+  animation-delay: 0.25s;
+  animation-fill-mode:forwards;
 }
 
 #movietitle{
@@ -188,6 +253,10 @@ nav{
   width:760px;
   left:380px;
   text-overflow:clip;
+  opacity:0%;
+  animation: fadeIn 2s; 
+  animation-delay: 0s;
+  animation-fill-mode:forwards;
 }
 
 #specific-data p:nth-last-child(5){
@@ -200,6 +269,10 @@ nav{
   left: 520px;
   position: absolute;
   color: #EEEEEE;
+  opacity:0%;
+  animation: fadeIn 2s; 
+  animation-delay: 0.25s;
+  animation-fill-mode:forwards;
 }
 
 #specific-data p:nth-last-child(4){
@@ -212,6 +285,10 @@ nav{
   left: 520px;
   position: absolute;
   color: #EEEEEE;
+  opacity:0%;
+  animation: fadeIn 2s; 
+  animation-delay: 0.45s;
+  animation-fill-mode:forwards;
 }
 
 #specific-data p:nth-last-child(3){
@@ -224,6 +301,10 @@ nav{
   left: 520px;
   position: absolute;
   color: #EEEEEE;
+  opacity:0%;
+  animation: fadeIn 2s; 
+  animation-delay: 0.65s;
+  animation-fill-mode:forwards;
 }
 
 #specific-data p:nth-last-child(2){
@@ -236,6 +317,10 @@ nav{
   left: 520px;
   position: absolute;
   color: #EEEEEE;
+  opacity:0%;
+  animation: fadeIn 2s; 
+  animation-delay: 0.85s;
+  animation-fill-mode:forwards;
 }
 
 #postareview{
@@ -247,6 +332,10 @@ nav{
   position: relative;
   color: #AAD8D3;
   top:-124px;
+  opacity:0%;
+  animation: fadeIn 2s; 
+  animation-delay: 0.25s;
+  animation-fill-mode:forwards;
 }
 
 #filmtext{
@@ -257,6 +346,10 @@ nav{
   color: #EEEEEE;
   border-radius:5px;
   font-size:18px;
+  opacity:0%;
+  animation: fadeIn 2s; 
+  animation-delay: 0.45s;
+  animation-fill-mode:forwards;
 }
 
 #reviewertext{
@@ -267,6 +360,10 @@ nav{
   color: #EEEEEE;
   border-radius:5px;
   font-size:18px;
+  opacity:0%;
+  animation: fadeIn 2s; 
+  animation-delay: 0.65s;
+  animation-fill-mode:forwards;
 }
 
 #reviewertext{
@@ -277,6 +374,7 @@ nav{
   color: #EEEEEE;
   border-radius:5px;
   font-size:18px;
+  
 }
 
 #commenttext{
@@ -287,6 +385,10 @@ nav{
   color: #EEEEEE;
   border-radius:5px;
   font-size:18px;
+  opacity:0%;
+  animation: fadeIn 2s; 
+  animation-delay: 0.85s;
+  animation-fill-mode:forwards;
 }
 
 #rateitbelow{
@@ -297,6 +399,10 @@ nav{
   color: #EEEEEE;
   border-radius:5px;
   font-size:18px;
+  opacity:0%;
+  animation: fadeIn 2s; 
+  animation-delay: 1s;
+  animation-fill-mode:forwards;
 }
 
 #recommendations{
@@ -320,6 +426,11 @@ label{
   position:relative;
   left:1125px;
   top:125px;
+
+  opacity:0%;
+  animation: fadeIn 2s; 
+  animation-delay: 1.2s;
+  animation-fill-mode:forwards;
 }
 
 #buttonsubmit{
@@ -327,6 +438,11 @@ label{
   left:947px;
   top:170px;
   border-radius:5px;
+
+  opacity:0%;
+  animation: fadeIn 2s; 
+  animation-delay: 1.3s;
+  animation-fill-mode:forwards;
 }
 
 #similarmoviestext{
@@ -340,6 +456,7 @@ label{
 .movie p {
   color:#EEEEEE;
   font-size:16px;
+  text-align:center;
 }
 
 #reccmoviestext{
@@ -348,4 +465,58 @@ label{
   position:relative;
   top:190px;
   left:65px;
+  opacity:0%;
+  animation: fadeIn 2s; 
+  animation-delay: 1.2s;
+  animation-fill-mode:forwards;
+}
+
+.movie{
+  opacity:0%;
+  animation: fadeIn 2s; 
+  animation-delay: 1.5s;
+  animation-fill-mode:forwards;
+}
+
+
+div.movie-container{
+  font-family: 'Arial Rounded MT Bold', sans-serif;
+  color:#AAD8D3;
+  justify-content:center;
+  align-items: center;
+  display:flex;
+  width:200px;
+  flex-direction:column;
+  height:250px;
+  background-color:#00ADB5;
+  border-radius:5px;
+
+  opacity:0%;
+  animation: fadeIn 2s; 
+  animation-delay: 0.75s;
+  animation-fill-mode:forwards;
+}
+
+.footer{ 
+  position: relative;     
+  text-align: center;    
+  bottom:90px; 
+  font-size: 24px;
+  font-family: 'Arial Rounded MT Bold', sans-serif;
+  color:#AAD8D3;
+  font-weight:bold;
+  opacity:0%;
+  animation: fadeIn 2s; 
+  animation-delay: 0.5s;
+  animation-fill-mode:forwards;
+}
+
+#movies {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  justify-content:center;
+  position:relative;
+  top:215px;
 }
