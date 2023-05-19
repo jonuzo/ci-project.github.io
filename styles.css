@@ -74,6 +74,7 @@ nav{
   animation: fadeIn 2s; 
   animation-delay: 0.5s;
   animation-fill-mode:forwards;
+  font-size:36px;
 }
 
 #home{
@@ -90,6 +91,24 @@ nav{
   opacity:0%;
   animation: fadeIn 2s; 
   animation-delay: 0.25s;
+  animation-fill-mode:forwards;
+  font-size:36px;
+}
+
+#register{
+  top:260px;
+  left:2%;
+  background-color: #AAD8D3;
+  position:absolute;
+  border-radius:5px;
+  padding-top:10px;
+  padding-bottom:10px;
+  padding-left:10px;
+  padding-right:10px;
+  font-family: 'Arial Rounded MT Bold', sans-serif;
+  opacity:0%;
+  animation: fadeIn 2s; 
+  animation-delay: 0.6s;
   animation-fill-mode:forwards;
 }
 
