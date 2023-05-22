@@ -183,6 +183,13 @@
         movieContainer.classList.add('movie-container');
         const titleElement = document.createElement('p');
         const posterElement = document.createElement('img');
+        
+        // Add click event listener to title element
+        titleElement.addEventListener('click', () => {
+          // Open 'movie.html' with the movie title as a query parameter
+          window.location.href = `movie.html?movie-title=${encodeURIComponent(movie.title)}`;
+        });
+
         titleElement.textContent = movie.title;
         posterElement.src = `https://image.tmdb.org/t/p/w500/${movie.poster_path}`;
         movieContainer.appendChild(titleElement); // Add title element to container
@@ -193,6 +200,7 @@
     })
     .catch(error => console.error(error));
 </script>
+
 
 <div class="footer">Check out this week's Trending Movies!</div>
 
