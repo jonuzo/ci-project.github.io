@@ -149,9 +149,11 @@
                     const moviePosterPath = movie.poster_path;
                     const movieId = movie.id;
                     const movieElement = `
-                      <div class="movie">
+                      <div class="movie2">
+                      <div class="movie2-container">
                          <a href="movie.html?movie-id=${movieId}" onclick="loadSearchData(${movieId});"><img src="https://image.tmdb.org/t/p/w200${moviePosterPath}" alt="${movieTitle} Poster" /></a>
                         <p>${movieTitle}</p>
+                      </div>
                       </div>
                     `;
 
