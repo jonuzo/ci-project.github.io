@@ -350,7 +350,7 @@ nav{
   text-align: center;
   position: relative;
   color: #AAD8D3;
-  top:-124px;
+  bottom: 378px;
   opacity:0%;
   animation: fadeIn 2s; 
   animation-delay: 0.25s;
@@ -424,13 +424,6 @@ nav{
   animation-fill-mode:forwards;
 }
 
-#recommendations{
-  position:absolute;
-  top: 565px;
-  overflow:hidden;
-  left:242px;
-}
-
 .movie img{
   width:115px;
   height:165px;
@@ -444,7 +437,7 @@ label{
 .rate{
   position:relative;
   left:1125px;
-  top:125px;
+  bottom:120px;
 
   opacity:0%;
   animation: fadeIn 2s; 
@@ -455,7 +448,7 @@ label{
 #buttonsubmit{
   position:relative;
   left:947px;
-  top:170px;
+  bottom: 75px;
   border-radius:5px;
 
   opacity:0%;
@@ -482,7 +475,7 @@ label{
   color:#AAD8D3;
   font-size: 24px;
   position:relative;
-  top:190px;
+  bottom:80px;
   left:65px;
   opacity:0%;
   animation: fadeIn 2s; 
@@ -511,8 +504,8 @@ div.movie-container{
   border-radius:5px;
 
   opacity:0%;
-  animation: fadeIn 2s; 
-  animation-delay: 0.75s;
+  animation: fadeIn 0s; 
+  animation-delay: 0s;
   animation-fill-mode:forwards;
 }
 
@@ -538,4 +531,55 @@ div.movie-container{
   justify-content:center;
   position:relative;
   top:215px;
+}
+
+#recommendations{
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  justify-content:center;
+  position:relative;
+  top:335px;
+  right:205px;
+}
+
+.movie2{
+  opacity:0%;
+  animation: fadeIn 2s; 
+  animation-delay: 1.5s;
+  animation-fill-mode:forwards;
+  margin-right:10px;
+}
+
+.movie2 img{
+  width: 115px;
+  height: 165px;
+  box-shadow: 0 0 3px 1px rgba(0,0,0,0.5);
+}
+
+.movie2 p{
+  color:#EEEEEE;
+  font-size:16px;
+  text-align:center;
+}
+
+.movie2-container{
+  font-family: 'Arial Rounded MT Bold', sans-serif;
+  color:#AAD8D3;
+  justify-content:center;
+  align-items: center;
+  display:flex;
+  width:150px;
+  flex-direction:column;
+  height:200px;
+  padding-top:30px;
+  padding-bottom:5px;
+  background-color:#00ADB5;
+  border-radius:5px;
+
+  opacity:0%;
+  animation: fadeIn 2s; 
+  animation-delay: 0.75s;
+  animation-fill-mode:forwards;
 }
