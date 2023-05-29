@@ -186,9 +186,10 @@
         
         // Add click event listener to title element
         titleElement.addEventListener('click', () => {
-          // Open 'movie.html' with the movie title as a query parameter
-          window.location.href = `movie.html?movie-title=${encodeURIComponent(movie.title)}`;
-        });
+  // Open 'movie.html' with the movie title and ID as query parameters
+  const url = `movie.html?movie-title=${encodeURIComponent(movie.title)}&movie-id=${encodeURIComponent(movie.id)}`;
+  window.location.href = url;
+});
 
         titleElement.textContent = movie.title;
         posterElement.src = `https://image.tmdb.org/t/p/w500/${movie.poster_path}`;
