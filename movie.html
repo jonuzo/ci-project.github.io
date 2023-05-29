@@ -46,7 +46,7 @@
             specificData.innerHTML = `
               <img src="https://image.tmdb.org/t/p/w500${moviePosterPath}" alt="${movieTitle} Poster" />
               <p></p>
-              <p><strong>Release date:</strong> ${movieReleaseDate}</p>
+              <p><strong>Release date8:</strong> ${movieReleaseDate}</p>
               <p><strong>Overview:</strong> ${movieOverview}</p>
               <p></p>
             `;
@@ -56,63 +56,39 @@
     }
 
     function handleRecommendedMovieClick(movieId) {
-      loadSearchData(movieId);
-    }
+  loadSearchData(movieId); // Load information for the clicked movie
+  fetchRecommendedMovies(movieId); // Fetch recommended movies for the clicked movie
+}
 
-    function fetchRecommendedMovies() {
-      const searchParams = new URLSearchParams(window.location.search);
-      const movieTitle = searchParams.get("movie-title");
+  function fetchRecommendedMovies(movieId) {
+    fetch(`https://api.themoviedb.org/3/movie/${movieId}/recommendations?api_key=${apiKey}&language=en-US&page=1`)
+    .then(response => response.json())
+    .then(data => {
+      const recommendations = document.getElementById("recommendations");
+      recommendations.innerHTML = `
+        <h2>Recommended Movies:</h2>
+      `;
 
-      if (movieTitle) {
-        fetch(`https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${movieTitle}`)
-          .then(response => response.json())
-          .then(data => {
-            if (data.results.length > 0) {
-              const movieId = data.results[0].id;
-              const moviePosterPath = data.results[0].poster_path;
-              const movieTitle = data.results[0].title;
-              const movieReleaseDate = data.results[0].release_date;
-              const movieOverview = data.results[0].overview;
+      data.results.slice(0, 4).forEach(movie => {
+        const movieTitle = movie.title;
+        const moviePosterPath = movie.poster_path;
+        const movieId = movie.id;
 
-              document.getElementById("movietitle").innerText = movieTitle;
+        const movieElement = `
+          <div class="movie2">
+            <div class="movie2-container">
+              <a href="#" onclick="handleRecommendedMovieClick(${movieId});">
+                <img src="https://image.tmdb.org/t/p/w200${moviePosterPath}" alt="${movieTitle} Poster" />
+              </a>
+              <p>${movieTitle}</p>
+            </div>
+          </div>
+        `;
 
-              const specificData = document.getElementById("specific-data");
-              specificData.innerHTML = `
-                <img src="https://image.tmdb.org/t/p/w500${moviePosterPath}" alt="${movieTitle} Poster" />
-                <p></p>
-                <p><strong>Release date1:</strong> ${movieReleaseDate}</p>
-                <p><strong>Overview:</strong> ${movieOverview}</p>
-                <p></p>
-              `;
-
-              fetch(`https://api.themoviedb.org/3/movie/${movieId}/recommendations?api_key=${apiKey}&language=en-US&page=1`)
-                .then(response => response.json())
-                .then(data => {
-                  const recommendations = document.getElementById("recommendations");
-                  recommendations.innerHTML = `
-                    <h2>Recommended Movies:</h2>
-                  `;
-
-                  data.results.slice(0, 4).forEach(movie => {
-                    const movieTitle = movie.title;
-                    const moviePosterPath = movie.poster_path;
-                    const movieId = movie.id;
-
-                    const movieElement = `
-                      <div class="movie2">
-                        <div class="movie2-container">
-                          <a href="#" onclick="handleRecommendedMovieClick(${movieId});">
-                            <img src="https://image.tmdb.org/t/p/w200${moviePosterPath}" alt="${movieTitle} Poster" />
-                          </a>
-                          <p>${movieTitle}</p>
-                        </div>
-                      </div>
-                    `;
-
-                    recommendations.insertAdjacentHTML("beforeend", movieElement);
-                  });
-                })
-                .catch(error => console.log(error));
+        recommendations.insertAdjacentHTML("beforeend", movieElement);
+      });
+    })
+    .catch(error => console.log(error));
             }
           })
           .catch(error => console.log(error));
