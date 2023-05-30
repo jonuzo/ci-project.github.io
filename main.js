@@ -24,11 +24,13 @@ const signUp = () => {
             // Signed in 
             document.write("You are Signed Up")
             console.log(result)
+            alert(user.email+" Signed up successfully!!!");
             // ...
         })
         .catch((error) => {
             console.log(error.code);
             console.log(error.message)
+            alert(errorMessage);
             // ..
         });
 }
@@ -43,9 +45,13 @@ const signIn = () => {
             // Signed in 
             document.write("You are Signed In")
             console.log(result)
+            alert(user.email+" Signed in successfully!!!");
         })
         .catch((error) => {
             console.log(error.code);
             console.log(error.message)
+            alert(errorMessage);
         });
 }
+
+
