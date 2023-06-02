@@ -111,7 +111,22 @@ nav{
   animation-delay: 0.6s;
   animation-fill-mode:forwards;
 }
-
+#watchlist{
+  top:340px;
+  left:2%;
+  background-color: #AAD8D3;
+  position:absolute;
+  border-radius:5px;
+  padding-top:10px;
+  padding-bottom:10px;
+  padding-left:10px;
+  padding-right:10px;
+  font-family: 'Arial Rounded MT Bold', sans-serif;
+  opacity:0%;
+  animation: fadeIn 2s; 
+  animation-delay: 0.6s;
+  animation-fill-mode:forwards;
+}
 #whatmovie{
   position:relative;
   text-align:center;
@@ -325,6 +340,22 @@ nav{
   animation-delay: 0.65s;
   animation-fill-mode:forwards;
 }
+#specific-data button{
+  font-size:16px;
+  line-height:1.5;
+  font-family: 'Arial Rounded MT Bold', sans-serif;
+  text-align: center;
+  top:200px;
+  width:150px;
+  height: 30px;
+  left: 520px;
+  position: absolute;
+  color: #000;
+  animation: fadeIn 2s; 
+  animation-delay: 0.85s;
+  animation-fill-mode:forwards;
+}
+
 
 #specific-data p:nth-last-child(2){
   font-size:16px;
@@ -582,4 +613,21 @@ div.movie-container{
   animation: fadeIn 2s; 
   animation-delay: 0.75s;
   animation-fill-mode:forwards;
+}
+
+
+table,th,td,tr{
+  
+  border: 2px solid white;
+  padding: 20px;
+  position: relative;
+  
+  
+  
+}
+
+#watchlist-table ,table{
+  margin-left: 400px;
+  color: #EEEEEE;
+
 }

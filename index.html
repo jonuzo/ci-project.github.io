@@ -17,7 +17,10 @@
         <a href=index.html id="home">Home</a>
       </ul>
       <ul>
-        <a href="signUp.html" id="register">Accounts</a>
+        <a href="watchlist.html" id="watchlist">Watchlist</a>
+      </ul>
+      <ul>
+        <a href="loginAuth.html" id="register">Accounts</a>
       </ul>
     </nav>
 
@@ -186,10 +189,9 @@
         
         // Add click event listener to title element
         titleElement.addEventListener('click', () => {
-  // Open 'movie.html' with the movie title and ID as query parameters
-  const url = `movie.html?movie-title=${encodeURIComponent(movie.title)}&movie-id=${encodeURIComponent(movie.id)}`;
-  window.location.href = url;
-});
+          // Open 'movie.html' with the movie title as a query parameter
+          window.location.href = `movie.html?movie-title=${encodeURIComponent(movie.title)}`;
+        });
 
         titleElement.textContent = movie.title;
         posterElement.src = `https://image.tmdb.org/t/p/w500/${movie.poster_path}`;
@@ -230,6 +232,7 @@
 
   .movie h2 {
     font-size: 18px;
+  }
 
 </style>
 
